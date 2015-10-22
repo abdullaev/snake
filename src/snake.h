@@ -29,13 +29,16 @@
 #define FOOD_CELL '$'
 #define VOID_CELL ' '
 #define WALL_CELL '@'
+#define DEAD_CELL 'X'
 #define DEFAULT_LVL "res/levels/1.lvl"
 #define LVL1 "res/levels/1.lvl"
 #define LVL2 "res/levels/2.lvl"
 #define LVL3 "res/levels/3.lvl"
 #define LVL4 "res/levels/4.lvl"
 #define LVL5 "res/levels/5.lvl"
-#define HIGH_SCORE "res/highscore.txt"
+#define HIGH_SCORE "res/highscore.snk"
+#define SAVE "res/save.snk"
+#define DATA "res/saved_data.snk"
 
 int gameOver;
 int gamePause;

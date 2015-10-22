@@ -134,7 +134,11 @@ void move()
 
 	//Ставим змейку на поле
 	for (int i = 0; i < snakeLength; i++) {
-		field[snakeY[i]][snakeX[i]] = SNAKE_CELL;
+		if (i == snakeLength - 1 && gameOver) {
+			field[snakeY[i]][snakeX[i]] = DEAD_CELL;
+		} else {
+			field[snakeY[i]][snakeX[i]] = SNAKE_CELL;
+		}
 	} 
 }
 
