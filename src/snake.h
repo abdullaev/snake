@@ -90,6 +90,8 @@ int snakeIsLine();
 
 void setScore();
 
+void calculateScore();
+
 void help();
 
 void pauseGame();

@@ -2,15 +2,22 @@
 
 void setScore() 
 {
-	char strScore[12] = {'[', 's', 'c', 'o', 'r', 'e', ':', ' '};
-	strScore[8] = ((score / 100) + '0');
-	strScore[9] = (((score % 100) / 10) + '0');
-	strScore[10] = ((score % 10) + '0');
-	strScore[11] = ']';
-	int start = (RAW_LENGTH - 10) / 2 - 1;
-	for (int i = 0; i < 12; i++) {
+	char strScore[14] = {'[', 's', 'c', 'o', 'r', 'e', ':', ' '};
+	strScore[8] = ((score / 10000) + '0');
+	strScore[9] = ((score / 1000) % 10 + '0');
+	strScore[10] = ((score / 100) % 10 + '0');
+	strScore[11] = ((score / 10) % 10 + '0');
+	strScore[12] = (score % 10 + '0');
+	strScore[13] = ']';
+	int start = (RAW_LENGTH - 10) / 2 - 3;
+	for (int i = 0; i < 14; i++) {
 		field[COLUMN_LENGTH - 1][start + i] = strScore[i]; 
 	}
+}
+
+void calculateScore()
+{
+	score += rand() % 6 + 20;
 }
 
 void help() 
@@ -27,7 +34,7 @@ void help()
 	printf("You can walk through border (%c - border cell), but if the snake eats itself,\n", BORDER_CELL);
 	printf("or crashes into a wall (%c - wall cell), you lose.\n", WALL_CELL);
 	printf("\nYou can also change the map. To do this, you need to change the files\n");
-	printf("in the program folder with the extension '.lvl'\n");
+	printf("in the './res/levels' folder with the extension '.lvl'\n");
     printf("\nPress any key to return to the main menu...\n");
 	getchar();
 }

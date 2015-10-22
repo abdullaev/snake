@@ -97,7 +97,8 @@ void move()
 		snakeY[++snakeLength - 1] = foodY;
 		snakeX[snakeLength - 1] = foodX;
 		field[foodY][foodX] = SNAKE_CELL;
-		setScore(++score);
+		calculateScore();
+		setScore();
 		createFood();
 		return;
 	}
@@ -178,7 +179,22 @@ void createFood()
 
 char nextCell() 
 {
-	return field[snakeY[snakeLength - 1] + stepY][snakeX[snakeLength - 1] + stepX];
+	int x = snakeX[snakeLength - 1] + stepX;
+	int y = snakeY[snakeLength - 1] + stepY;
+
+	if (x == RAW_LENGTH - 1) {
+		x = 1;
+	}
+	if (x == 0) {
+		x = RAW_LENGTH - 2;
+	} 
+	if (y == COLUMN_LENGTH - 1) {
+		y = 1;
+	}
+	if (y == 0) {
+		y = COLUMN_LENGTH - 2;
+	}
+	return field[y][x];
 }
 
 void reverseSnake() 
