@@ -9,7 +9,7 @@ void setScore()
 	strScore[11] = ((score / 10) % 10 + '0');
 	strScore[12] = (score % 10 + '0');
 	strScore[13] = ']';
-	int start = (RAW_LENGTH - 10) / 2 - 3;
+	int start = (RAW_LENGTH - 10) / 2 - 2;
 	for (int i = 0; i < 14; i++) {
 		field[COLUMN_LENGTH - 1][start + i] = strScore[i]; 
 	}
